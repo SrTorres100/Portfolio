@@ -14,9 +14,57 @@
   <div class="container-fluid">
   <h1>Audio Unreal Engine 5</h1>
   <h2>Traduccion realizada por: SrT100</h2>
-  <img src="./assets/RoboSpider SEDENA Edition.jpg" class="img-fluid" alt="Robo" srcset="">
+  <img src="./assets/audio UE5.png" class="img-fluid" alt="UE" srcset="">
 
-  <img src="./assets/Sedena.png" class="img-fluid" alt="Robo2" srcset="">
+ <h3>El Audio Mixer es el renderizador de audio multiplataforma completo y completo de Unreal Engine. Este potente motor de audio se lanzó por primera vez en Fortnite y más tarde se añadió a Unreal Engine 4.24.
+
+Desde su lanzamiento inicial, el Mezclador de Audio ha seguido evolucionando su conjunto de funciones heredadas y ha añadido funciones de renderizado de audio de nueva generación que ofrecen un control y una flexibilidad sin precedentes a los diseñadores de audio que trabajan en experiencias en tiempo real.
+
+Esta visión general cubre el conjunto de funciones heredadas actuales, así como las características de nueva generación añadidas a Unreal Engine 5 (UE5).</h3>
+
+    <h2>Características heredadas</h2>
+    <h3>El núcleo de las funciones de audio heredadas de Unreal Engine son las Señales de Sonido, las Clases de Sonido y las Mezclas de Sonido. Estas funciones están soportadas en el nuevo Audio Mixer para facilitar la migración de proyectos al nuevo motor de audio.</h3>
+
+    <h2>Señales de sonido</h2>
+    <h3>Los Sound Cues son los objetos de audio heredados de Unreal Engine. Los Sound Cues son gráficos de parámetros de audio a partir de los cuales los diseñadores de audio pueden reproducir fuentes sonoras y manipular diversos parámetros, como el volumen y el tono.
+
+Las señales sonoras no son capaces de controlar con precisión de muestra y no permiten la creación de algoritmos arbitrarios de procesamiento digital de señales. El flujo de trabajo es mayormente manual, lo que obliga a los diseñadores de audio a crear señales de sonido separadas para cada sonido.
+
+Por último, la incapacidad para gestionar el tiempo y la programación del audio con precisión de muestra hace que la creación de sonido procedural sea más complicada.</h3>
+
+    <h2>Clases de sonido y mezclas sonoras</h2>
+    <h3>Las clases de sonido representan un conjunto de parámetros estáticos correspondientes a sonidos específicos.
+
+Estos se utilizan para categorizar los sonidos y aplicar un conjunto consistente de parámetros al proyecto. Debido a su naturaleza estática, los diseñadores de audio suelen acabar creando muchas clases de sonido similares para cubrir todos los diferentes casos de uso necesarios para un proyecto grande. Depurar las Clases de Sonido también puede volverse complejo debido a inconsistencias de herencia entre parámetros dentro de las Clases de Sonido, donde algunos tienen prioridad sobre otros.
+
+Las mezclas de sonido ofrecen a los diseñadores de audio la capacidad de modular dinámicamente un conjunto de parámetros de audio en tiempo de ejecución. Esto es útil para crear sonidos dinámicos que reaccionan a eventos de juego y otras condiciones. Las mezclas de sonido también pueden ser difíciles de depurar, ya que los diseñadores de audio pueden añadir complejidad creando múltiples instancias de la misma mezcla de sonido y combinándolas con clases de sonido.</h3>
+    
+    <h2>Renderizado sonoro en UE5</h2>
+    <h3>Muchas de las funciones desarrolladas para Audio Mixer amplían las características heredadas de Unreal Engine y abordan los desafíos mencionados anteriormente. Se desarrollaron otras funciones nuevas para dotar a Unreal Engine de capacidades similares a otras herramientas profesionales de autoría de audio.</h3>
+
+    <h2>MetaSounds</h2>
+    <h3>Unreal Engine 5 presenta MetaSounds, un nuevo sistema de audio de alto rendimiento que proporciona a los diseñadores de audio control total sobre la generación de gráficos de Procesamiento Digital de Señales (DSP) para fuentes de sonido. MetaSounds tiene paridad de características con Sound Cues e incluye funciones de nueva generación que permiten a los diseñadores crear experiencias de audio inmersivas.
+
+MetaSounds abordan los problemas presentes en las señales sonoras y sirven como sustituto de los objetos de audio predeterminados de Unreal Engine. A diferencia de las señales sonoras, los MetaSounds son fundamentalmente un gráfico de renderizado de Procesamiento Digital de Señales (DSP). Proporcionan a los diseñadores de audio la capacidad de construir sistemas de audio procedimentales arbitrariamente complejos que ofrezcan un tiempo y control precisos en la muestra a nivel de búfer de audio.
+
+Además de las capacidades de renderizado de audio en tiempo de ejecución, MetaSounds soporta flujos de trabajo mejorados para diseñadores de audio, incluyendo: construcción de MetaSounds mediante composición (MetaSounds dentro de MetaSounds), soporte para templatización e instanciación dinámica y estática de activos.
+
+MetaSounds también ofrece mejoras significativas en el rendimiento respecto a Sound Cues y ofrece una API totalmente extensible que puede ser utilizada por plugins de terceros.</h3>
+
+    <h2>Modulación de audio</h2>
+    <h3>En el conjunto de funciones de audio heredado de Unreal Engine, la Clase de Sonido define parámetros globales estáticos y los aplica a sonidos en grupos, y las mezclas de sonido ajustan esos parámetros dinámicamente en tiempo de ejecución. Estos parámetros están codificados y son estáticos, lo que limita su uso durante la partida.
+
+La modulación de audio es la evolución de estas clases heredadas y libera el concepto de control y modulación de parámetros hacia un "bus de parámetros" genérico. Cualquier cosa puede ser una fuente de modulación y cualquier cosa puede ser un destino de modulación.
+
+Los buses de parámetros pueden tener cualquier número de fuentes de modulación, incluyendo clases Blueprint, mezclas de modulación y código de juego. Los destinos de modulación son parámetros que se modulan y pueden mapearse localmente desde el bus de parámetros de varias maneras.
+
+Los buses de parámetros de modulación de audio ofrecen a los diseñadores de audio la capacidad de definir sus propios grupos de parámetros (Clases de Sonido) y controlarlos como quieran (Mezclas de Sonido).</h3>
+
+    <h2>Quartz</h2>
+    <h3>Quartz es un conjunto de funciones que aporta la precisión exacta de los eventos de audio a Blueprints. Quartz gestiona la complejidad de programar audio para que se reproduzca en momentos precisos y está diseñado para soportar sistemas de música interactivos y procedimentales personalizados. Quartz también envía eventos de temporización precisa a Blueprints para soportar lógica de juego sincronizada y visuales con audio.</h3>
+
+    <h2>Análisis de audio</h2>
+    <h3>El análisis de audio es un conjunto de tecnologías que ofrece análisis de audio no en tiempo real ni en tiempo real. Estas herramientas funcionan con scripting de Niagara y Blueprint y proporcionarán integración con el editor de Unreal Engine 5 para la creación de analizadores de experiencia de usuario y depuración, así como análisis de audio en tiempo de ejecución para impulsar la jugabilidad y los gráficos.</h3>
  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
